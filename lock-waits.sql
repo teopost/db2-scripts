@@ -28,6 +28,9 @@ select
       substr(TABNAME,1,10) as "TabName", 
       substr(TABSCHEMA,1,10) as "Schema", 
       LOCK_WAIT_ELAPSED_TIME as "waiting (s)" -- How long is the wait
+      REQ_STMT_TEXT, -- new
+      HLD_CURRENT_STMT_TEXT, -- new
+      LOCK_NAME -- new
 from 
       SYSIBMADM.MON_LOCKWAITS;
 
