@@ -1,0 +1,8 @@
+/* Show me all the Critical and Error messages in the last 24 hours */
+
+SELECT 
+   TIMESTAMP, 
+   SUBSTR(MSG,1,400) AS MSG 
+FROM 
+   SYSIBMADM.PDLOGMSGS_LAST24HOURS WHERE MSGSEVERITY IN ('C','E')
+ORDER BY TIMESTAMP DESC
